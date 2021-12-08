@@ -27,3 +27,6 @@ python mcrpc.py
 ```
 
 Follow the prompts, and you will get a list of missing resources.
+
+##Screenshot
+![screenshot](https://i.imgur.com/pc8xRpM.png)
