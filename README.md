@@ -7,7 +7,7 @@ Clone the repo
 git clone https://github.com/txtsd/mcrpc.git
 ```
 
-You will need [Python](https://www.python.org/) and
+You will need [Python](https://www.python.org/)
 
 Install the dependencies:
 ```
