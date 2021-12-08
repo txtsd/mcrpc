@@ -7,19 +7,18 @@ Clone the repo
 git clone https://github.com/txtsd/mcrpc.git
 ```
 
-You will need [Python](https://www.python.org/) and [pipenv](https://github.com/pypa/pipenv)
+You will need [Python](https://www.python.org/) and
 
-Install the pipenv environment and dependencies:
+Install the dependencies:
+```
+pip install -r requirements.txt
+```
+
+Or if you have [pipenv](https://github.com/pypa/pipenv) (preferred), install the pipenv environment and dependencies:
 ```
 pipenv install
 pipenv shell
 ```
-
-Or if you don't have/want pipenv
-```
-pip install -r requirements.txt
-```
-This will install requests.
 
 Finally, run
 ```
