@@ -209,5 +209,6 @@ if __name__ == '__main__':
 
     print('\nExit? (y/N)')
     while True:
-        if input() == 'y' or input() == 'Y':
+        choice_quit = input()
+        if choice_quit == 'y' or choice_quit == 'Y':
             exit(0)
