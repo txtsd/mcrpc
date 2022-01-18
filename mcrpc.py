@@ -45,7 +45,7 @@ def choose_rp():
                 list_rp_checked.append(item)
 
     if len(list_rp_checked) == 0:
-        print('No valid resouce packs. Install one and try again.')
+        print('No valid resource packs. Install one and try again.')
         exit(1)
 
     for i, item in enumerate(list_rp_checked, 1):
