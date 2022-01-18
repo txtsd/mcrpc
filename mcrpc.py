@@ -44,6 +44,10 @@ def choose_rp():
             if os.path.isfile(os.path.join(PATH_RP_DIR, item, 'pack.mcmeta')):
                 list_rp_checked.append(item)
 
+    if len(list_rp_checked) == 0:
+        print('No valid resouce packs. Install one and try again.')
+        exit(1)
+
     for i, item in enumerate(list_rp_checked, 1):
         print("  [{}] {}".format(i, item))
     print('Resource Pack choice: ', end='')
