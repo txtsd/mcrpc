@@ -186,7 +186,7 @@ def compare(rp, mcv):
     print('\nMissing files:')
     for file in sorted(missing_files):
         print("  {}".format(file))
-    print('\nTotal missing files:', len(missing_files), '\n')
+    print('\nTotal missing files:', len(missing_files))
 
 
 if __name__ == '__main__':
@@ -206,3 +206,8 @@ if __name__ == '__main__':
             break
         else:
             print('\nInvalid choice!')
+
+    print('\nExit? (y/N)')
+    while True:
+        if input() == 'y' or input() == 'Y':
+            exit(0)
