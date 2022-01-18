@@ -1,7 +1,14 @@
 # Minecraft Resource Pack Comparator
-MCRPC checks your resource pack against any version of Minecraft to show resources missing from your pack for that version.
+MCRPC checks your resource pack against any version of Minecraft to show resources missing from your pack for that version. It can also compare any two versions of Minecraft and show missing (added) files.
 
 ## Installation and usage
+
+Download the correct binary from the [latest release](https://github.com/txtsd/mcrpc/releases/latest) for your platform.
+
+Double-click it, or launch it via your terminal of choice.
+Follow the prompts, and you will get a list of missing resources.
+
+## Development
 Clone the repo
 ```
 git clone https://github.com/txtsd/mcrpc.git
@@ -25,7 +32,8 @@ Finally, run
 python mcrpc.py
 ```
 
-Follow the prompts, and you will get a list of missing resources.
+
 
 ## Screenshot
-![screenshot](https://i.imgur.com/pc8xRpM.png)
+![screenshot](https://i.imgur.com/VyVocCv.png)
+![screenshot](https://i.imgur.com/ONGGVN4.png)
