@@ -1,3 +1,4 @@
+import collections
 import glob
 import hashlib
 import json
@@ -182,7 +183,7 @@ def get_client(mcv, low=False):
 
 
 def compare(rp, mcv):
-    if type(rp) is dict:
+    if isinstance(rp, collections.abc.Mapping):
         # Comparing 2 minecraft versions
         get_client(rp, low=True)
         get_client(mcv)
