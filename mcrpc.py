@@ -11,6 +11,7 @@ from pprint import pprint
 from zipfile import ZipFile
 
 import requests
+from platformdirs import user_cache_dir
 
 PLATFORM = sys.platform
 if PLATFORM.startswith('linux'):
@@ -20,8 +21,9 @@ elif PLATFORM.startswith('darwin'):
 elif PLATFORM.startswith('win32'):
     PATH_DOTMC = os.path.join(os.path.expandvars(r'%APPDATA%'), '.minecraft')
 
+APPNAME = "mcrpc"
+PATH_CACHE = user_cache_dir(APPNAME)
 PATH_RP_DIR = os.path.join(PATH_DOTMC, 'resourcepacks')
-PATH_CACHE = '.cache'
 PATH_TARGET = os.path.join(PATH_CACHE, 'target')
 PATH_DEFAULT = os.path.join(PATH_CACHE, 'default')
 PATH_CLIENT_LOW = os.path.join(PATH_CACHE, 'client_low.jar')

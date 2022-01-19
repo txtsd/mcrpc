@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 requests = "2.26.0"
+platformdirs = "2.4.1"
 
 [dev-packages]
 nuitka = "0.6.18.1"
