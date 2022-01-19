@@ -79,28 +79,45 @@ def choose_mcv(low=None):
         print('\nSelect the higher Minecraft Version:')
     else:
         print('\nSelect the Minecraft Version you want to compare against:')
-    j = 1
-    for item in json_vm['versions']:
-        if choice_stable == 'n' or choice_stable == 'N':
-            if not item['type'] == 'release':
-                continue
-        print("  [{}] {}".format(j, item['id']))
-        if j == 25:
-            break
-        j += 1
-    print('Minecraft Version choice: ', end='')
 
-    choice_mcv_num = input()
+    i = 1
+    counter_size = 0
+    choice_mcv_num = ''
+    skip_display = False
+    while True:
+        for item in json_vm['versions']:
+
+            counter_size += 1
+            if counter_size > len(json_vm['versions']):
+                skip_display = True
+
+            if choice_stable == 'n' or choice_stable == 'N':
+                if not item['type'] == 'release':
+                    continue
+
+            if not skip_display:
+                print("  [{}] {}".format(i, item['id']))
+
+            if i % 25 == 0:
+                print('(Hit Enter to show more versions) Minecraft Version choice: ', end='')
+
+                choice_mcv_num = input()
+                if choice_mcv_num.isdigit():
+                    break
+            i += 1
+        if choice_mcv_num.isdigit():
+            break
+
     choice_mcv = None
 
-    j = 1
+    i = 1
     for item in json_vm['versions']:
         if choice_stable == 'n' or choice_stable == 'N':
             if not item['type'] == 'release':
                 continue
-        if j == int(choice_mcv_num):
+        if i == int(choice_mcv_num):
             choice_mcv = item
-        j += 1
+        i += 1
 
     return(choice_mcv)
 
