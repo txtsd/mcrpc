@@ -70,24 +70,37 @@ def choose_mcv(low=None):
     json_vm.raise_for_status()
     json_vm = json_vm.json()
 
+    print('\nSee non-stable versions? (y/n)')
+    choice_stable = input()
+
     if low == True:
         print('\nSelect the lower Minecraft Version:')
     elif low == False:
         print('\nSelect the higher Minecraft Version:')
     else:
         print('\nSelect the Minecraft Version you want to compare against:')
-    for i, item in enumerate(json_vm['versions'], 1):
-        print("  [{}] {}".format(i, item['id']))
-        if i == 25:
+    j = 1
+    for item in json_vm['versions']:
+        if choice_stable == 'n' or choice_stable == 'N':
+            if not item['type'] == 'release':
+                continue
+        print("  [{}] {}".format(j, item['id']))
+        if j == 25:
             break
+        j += 1
     print('Minecraft Version choice: ', end='')
 
     choice_mcv_num = input()
     choice_mcv = None
 
-    for i, item in enumerate(json_vm['versions'], 1):
-        if i == int(choice_mcv_num):
+    j = 1
+    for item in json_vm['versions']:
+        if choice_stable == 'n' or choice_stable == 'N':
+            if not item['type'] == 'release':
+                continue
+        if j == int(choice_mcv_num):
             choice_mcv = item
+        j += 1
 
     return(choice_mcv)
 
