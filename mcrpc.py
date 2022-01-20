@@ -229,7 +229,6 @@ def choose_output(list_of_files):
             print('\nMissing files:')
             for file in sorted(list_of_files):
                 print("  {}".format(file))
-            # break
         elif choice_output == '2':
             filename = 'missing_files.txt'
             with open(filename, 'w') as f:
@@ -238,7 +237,8 @@ def choose_output(list_of_files):
                     f.write(os.linesep)
             print('\nSaved as:')
             print(os.path.join(os.getcwd(), filename))
-            # break
+        elif choice_output == '3':
+            exit(0)
         else:
             print('\nInvalid choice!')
 
@@ -260,9 +260,3 @@ if __name__ == '__main__':
             break
         else:
             print('\nInvalid choice!')
-
-    print('\nExit? (y/N)')
-    while True:
-        choice_quit = input()
-        if choice_quit == 'y' or choice_quit == 'Y':
-            exit(0)
