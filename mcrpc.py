@@ -212,11 +212,35 @@ def compare(rp, mcv):
         files_right[i] = pattern.sub("\g<1>", file)
 
     missing_files = [x for x in files_left if x not in files_right]
+    choose_output(missing_files)
 
-    print('\nMissing files:')
-    for file in sorted(missing_files):
-        print("  {}".format(file))
-    print('\nTotal missing files:', len(missing_files))
+
+def choose_output(list_of_files):
+    print('\nTotal missing files:', len(list_of_files))
+
+    while True:
+        print('\n  [1] Display list of files')
+        print('  [2] Save list to file')
+        print('  [3] Quit')
+        print('Choice: ', end='')
+        choice_output = input()
+
+        if choice_output == '1':
+            print('\nMissing files:')
+            for file in sorted(list_of_files):
+                print("  {}".format(file))
+            # break
+        elif choice_output == '2':
+            filename = 'missing_files.txt'
+            with open(filename, 'w') as f:
+                for file in sorted(list_of_files):
+                    f.write(file)
+                    f.write(os.linesep)
+            print('\nSaved as:')
+            print(os.path.join(os.getcwd(), filename))
+            # break
+        else:
+            print('\nInvalid choice!')
 
 
 if __name__ == '__main__':
