@@ -16,7 +16,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
+          release_name: MCRPC ${{ github.ref }}
           draft: true
           prerelease: false
   build_and_upload_release_asset:
