@@ -23,6 +23,7 @@ elif PLATFORM.startswith('win32'):
 
 APPNAME = "mcrpc"
 PATH_CACHE = user_cache_dir(APPNAME)
+PATH_CACHE_JARS = os.path.join(PATH_CACHE, 'jars')
 PATH_RP_DIR = os.path.join(PATH_DOTMC, 'resourcepacks')
 PATH_TARGET = os.path.join(PATH_CACHE, 'target')
 PATH_DEFAULT = os.path.join(PATH_CACHE, 'default')
@@ -125,13 +126,14 @@ def choose_mcv(low=None):
     return(choice_mcv)
 
 
-def setup_compare_folders(path_rp=None, mc2=False):
+def setup_compare_folders(rp, mcv):
     if os.path.exists(PATH_TARGET):
         shutil.rmtree(PATH_TARGET)
     if os.path.exists(PATH_DEFAULT):
         shutil.rmtree(PATH_DEFAULT)
 
-    if not mc2:
+    if not isinstance(rp, collections.abc.Mapping):
+        path_rp = os.path.join(PATH_RP_DIR, rp)
         if path_rp[-4:] == ".zip":
             with ZipFile(path_rp) as zip1:
                 for file in zip1.namelist():
@@ -140,17 +142,20 @@ def setup_compare_folders(path_rp=None, mc2=False):
         else:
             copy_tree(os.path.join(path_rp, 'assets'), os.path.join(PATH_TARGET, 'assets'))
     else:
-        with ZipFile(PATH_CLIENT_LOW) as zip2:
+        path_client = os.path.join(PATH_CACHE_JARS, '{}.jar'.format(rp['id']))
+        with ZipFile(path_client) as zip2:
             for file in zip2.namelist():
                 if file.startswith('assets/'):
                     zip2.extract(file, path=PATH_TARGET)
 
-    with ZipFile(PATH_CLIENT_HIGH) as zip3:
+    path_client = os.path.join(PATH_CACHE_JARS, '{}.jar'.format(mcv['id']))
+    with ZipFile(path_client) as zip3:
         for file in zip3.namelist():
             if file.startswith('assets/'):
                 zip3.extract(file, path=PATH_DEFAULT)
 
-def get_client(mcv, low=False):
+
+def get_client(mcv):
     json_version = SESSION.get(mcv['url'])
     json_version.raise_for_status()
     json_version = json_version.json()
@@ -160,13 +165,10 @@ def get_client(mcv, low=False):
     sha1 = hashlib.sha1()
     sha_calculated = None
 
-    if not os.path.exists(PATH_CACHE):
-        os.makedirs(PATH_CACHE)
+    if not os.path.exists(PATH_CACHE_JARS):
+        os.makedirs(PATH_CACHE_JARS)
 
-    if low == True:
-        path_client = PATH_CLIENT_LOW
-    else:
-        path_client = PATH_CLIENT_HIGH
+    path_client = os.path.join(PATH_CACHE_JARS, '{}.jar'.format(mcv['id']))
 
     if os.path.exists(path_client):
         with open(path_client, 'rb') as f:
@@ -187,16 +189,13 @@ def get_client(mcv, low=False):
 def compare(rp, mcv):
     if isinstance(rp, collections.abc.Mapping):
         # Comparing 2 minecraft versions
-        get_client(rp, low=True)
+        get_client(rp)
         get_client(mcv)
-        setup_compare_folders(mc2=True)
-        pass
     else:
         # Comparing a resource pack against a minecraft version
-        path_rp = os.path.join(PATH_RP_DIR, rp)
         get_client(mcv)
-        setup_compare_folders(path_rp)
-        pass
+
+    setup_compare_folders(rp, mcv)
 
     dir_left = os.path.join(PATH_DEFAULT, '**', '*.*')
     dir_right = os.path.join(PATH_TARGET, '**', '*.*')
