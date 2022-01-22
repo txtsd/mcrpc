@@ -11,7 +11,7 @@ from pprint import pprint
 from zipfile import ZipFile
 
 import requests
-from platformdirs import user_cache_dir
+from appdirs import user_cache_dir
 
 PLATFORM = sys.platform
 if PLATFORM.startswith('linux'):

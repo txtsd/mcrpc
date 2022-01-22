@@ -1,2 +1,2 @@
 requests==2.26.0
-platformdirs==2.4.1
+appdirs==1.4.4
