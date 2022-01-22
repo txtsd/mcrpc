@@ -202,9 +202,9 @@ def compare(rp, mcv):
     files_right = glob.glob("{}".format(dir_right), recursive=True)
 
     if PLATFORM.startswith('linux') or PLATFORM.startswith('darwin'):
-        pattern = re.compile(".*/assets/(.*)")
+        pattern = re.compile(r".*/assets/(.*)")
     elif PLATFORM.startswith('win32'):
-        pattern = re.compile(".*\\assets\\(.*)")
+        pattern = re.compile(r".*\assets\(.*)")
 
     for i, file in enumerate(files_left):
         files_left[i] = pattern.sub("\g<1>", file)
