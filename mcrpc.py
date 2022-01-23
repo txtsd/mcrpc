@@ -204,7 +204,7 @@ def compare(rp, mcv):
     if PLATFORM.startswith('linux') or PLATFORM.startswith('darwin'):
         pattern = re.compile(r".*/assets/(.*)")
     elif PLATFORM.startswith('win32'):
-        pattern = re.compile(r".*\assets\(.*)")
+        pattern = re.compile(r".*\\assets\\(.*)")
 
     for i, file in enumerate(files_left):
         files_left[i] = pattern.sub("\g<1>", file)
