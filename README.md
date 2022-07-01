@@ -11,7 +11,7 @@ Follow the prompts, and you will get a list of missing resources.
 ## Development
 Clone the repo
 ```
-git clone https://github.com/txtsd/mcrpc.git
+git clone https://git.sr.ht/~txtsd/mcrpc
 ```
 
 You will need [Python](https://www.python.org/)
