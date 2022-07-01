@@ -4,6 +4,7 @@ MCRPC checks your resource pack against any version of Minecraft to show resourc
 ## Installation and usage
 
 Download the correct binary from the [latest release](https://github.com/txtsd/mcrpc/releases/latest) for your platform.
+NOTE: Builds on sourcehut are not available yet
 
 Double-click it, or launch it via your terminal of choice.
 Follow the prompts, and you will get a list of missing resources.
