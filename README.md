@@ -1,39 +1,11 @@
-# Minecraft Resource Pack Comparator
-MCRPC checks your resource pack against any version of Minecraft to show resources missing from your pack for that version. It can also compare any two versions of Minecraft and show missing (added) files.
+# Give Up GitHub
 
-## Installation and usage
+This project has given up GitHub.  ([See Software Freedom Conservancy's *Give Up  GitHub* site for details](https://GiveUpGitHub.org).)
 
-Download the correct binary from the [latest release](https://github.com/txtsd/mcrpc/releases/latest) for your platform.
+You can now find this project at sourcehut instead: [https://sr.ht/~txtsd/mcrpc/](https://sr.ht/~txtsd/mcrpc/)
 
-Double-click it, or launch it via your terminal of choice.
-Follow the prompts, and you will get a list of missing resources.
+Any use of this project's code by GitHub Copilot, past or present, is done without our permission.  We do not consent to GitHub's use of this project's code in Copilot.
 
-## Development
-Clone the repo
-```
-git clone https://github.com/txtsd/mcrpc.git
-```
+Join us; you can [give up GitHub](https://GiveUpGitHub.org) too!
 
-You will need [Python](https://www.python.org/)
-
-Install the dependencies:
-```
-pip install -r requirements.txt
-```
-
-Or if you have [pipenv](https://github.com/pypa/pipenv) (preferred), install the pipenv environment and dependencies:
-```
-pipenv install
-pipenv shell
-```
-
-Finally, run
-```
-python mcrpc.py
-```
-
-
-
-## Screenshot
-![screenshot](https://i.imgur.com/VyVocCv.png)
-![screenshot](https://i.imgur.com/ONGGVN4.png)
+![Logo of the GiveUpGitHub campaign](https://sfconservancy.org/img/GiveUpGitHub.png)
