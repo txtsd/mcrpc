@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "mcrpc"
+version = "1.2.3"
+description = "MCRPC (Minecraft Resource Pack Comparator) checks your resource pack against any version of Minecraft to show resources missing from your pack for that version. It can also compare any two versions of Minecraft and show missing (added) files."
+authors = ["txtsd <code@ihavea.quest>"]
+license = "GPL-3.0-only"
+readme = "README.md"
+homepage = "https://sr.ht/~txtsd/mcrpc/"
+repository = "https://git.sr.ht/~txtsd/mcrpc"
+keywords = ["minecraft", "resourcepack"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Games/Entertainment",
+    "Topic :: Internet",
+    "Topic :: Multimedia",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: POSIX",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "2.26.0"
+appdirs = "1.4.4"
+
+[tool.poetry.group.dev.dependencies]
+Nuitka = "0.6.18.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
