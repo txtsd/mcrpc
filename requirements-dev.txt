@@ -1,3 +1,0 @@
-requests==2.26.0
-appdirs==1.4.4
-nuitka==0.6.18.1
