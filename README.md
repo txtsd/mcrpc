@@ -2,7 +2,7 @@
 
 MCRPC checks your resource pack against any version of Minecraft to show resources missing from your pack for that version. It can also compare any two versions of Minecraft and show missing (added) files.
 
-# Links
+## Links
 
 Project: <https://sr.ht/~txtsd/mcrpc/> <br>
 Sources: <https://sr.ht/~txtsd/mcrpc/sources> <br>
@@ -20,8 +20,9 @@ If sourcehut is not feasible, contribution is welcome from across mirrors.
 
 ## Installation and usage
 
-Download the correct binary from the [latest release](https://github.com/txtsd/mcrpc/releases/latest) for your platform.
-NOTE: Builds on sourcehut are not available yet
+Download a binary from the latest release for your platform on [the refs page](https://git.sr.ht/~txtsd/mcrpc/refs).
+Each tag has binaries attached.
+NOTE: Release artifacts are built on GitHub due to cross-platform CI runner limitations on sourcehut.
 
 Double-click it, or launch it via your terminal of choice.
 Follow the prompts, and you will get a list of missing resources.
