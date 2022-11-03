@@ -20,33 +20,36 @@ If sourcehut is not feasible, contribution is welcome from across mirrors.
 
 ## Installation and usage
 
-Download a binary from the latest release for your platform on [the refs page](https://git.sr.ht/~txtsd/mcrpc/refs).
+Download a binary from the latest tag for your platform on [the refs page](https://git.sr.ht/~txtsd/mcrpc/refs).
 Each tag has binaries attached.
+
 NOTE: Release artifacts are built on GitHub due to cross-platform CI runner limitations on sourcehut.
 
 Double-click it, or launch it via your terminal of choice.
 Follow the prompts, and you will get a list of missing resources.
+
+If you prefer running a python script over a binary, follow the development instructions instead.
 
 ## Development
 Clone the repo
 
 ```
 git clone https://git.sr.ht/~txtsd/mcrpc
+cd mcrpc
 ```
 
-You will need [Python](https://www.python.org/)
+You will need [`python`](https://www.python.org/) and [`python-poetry`](https://python-poetry.org/)
 
-Install the dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-Or if you have [pipenv](https://github.com/pypa/pipenv) (preferred), install the pipenv environment and dependencies:
+Install the dependencies into a virtual environment:
 
 ```
-pipenv install
-pipenv shell
+poetry install
+```
+
+Load the virtual environment created by `poetry`:
+
+```
+poetry shell
 ```
 
 Finally, run
